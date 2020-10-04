@@ -2,7 +2,7 @@ const Jimp = require('jimp');
 
 module.exports = async function createCaptcha() {
     const captcha = Math.random().toString(36).slice(2, 8);
-    const image = new Jimp(175, 50, 'white');
+    const image = new Jimp(175, 50, 'pink');
     const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
     const w = image.bitmap.width;
     const h = image.bitmap.height;

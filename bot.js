@@ -33,7 +33,7 @@ client.on('guildMemberAdd', async member => {
                 await member.roles.add('736001778121965749');
                 await fs.unlink(`${__dirname}/captchas/${captcha}.png`);
                 logs = client.channels.cache.get('736173575547125780');
-                logs.send(`${member.mention} se ha verificado`)
+                logs.send(`${mention.member} se ha verificado`)
                     .catch(err => console.log(err));
             }
         }

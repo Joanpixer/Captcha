@@ -31,7 +31,9 @@ client.on('guildMemberAdd', async member => {
             if(response) {
                 await msg.channel.send('Has sido verificado!');
                 await member.roles.add('736001778121965749');
-                await fs.unlink(`${__dirname}/captchas/${captcha}.png`)
+                await fs.unlink(`${__dirname}/captchas/${captcha}.png`);
+                logs = client.channels.cache.get('736173575547125780');
+                logs.send(`${member.id} se ha verificado`)
                     .catch(err => console.log(err));
             }
         }

@@ -23,13 +23,13 @@ client.on('guildMemberAdd', async member => {
                 if(m.author.bot) return;
                 if(m.author.id === member.id && m.content === captcha) return true;
                 else {
-                    m.channel.send('Incorrecto.');
+                    m.channel.send("You've failed the captcha.");
                     return false;
                 }
             };
             const response = await msg.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time']});
             if(response) {
-                await msg.channel.send('Has sido verificado!');
+                await msg.channel.send('You have been verified succesfully!');
                 await member.roles.add('736001778121965749');
                 await fs.unlink(`${__dirname}/captchas/${captcha}.png`)
                     .catch(err => console.log(err));
